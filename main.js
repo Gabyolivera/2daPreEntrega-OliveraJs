@@ -67,7 +67,7 @@ class CarritoPacks {
     }
 
     mostrarPacksLlamadas() {
-        let mensaje = "Seleccione el pack de llamadas que desea agregar:\n\n";
+        let mensaje = "Desea agregar un pack de llamadas a su compra?:\n\n";
 
         this.llamadas.forEach(llamada => {
             mensaje += `${llamada.id} - ${llamada.nombre} - $${llamada.precio}\n`;
