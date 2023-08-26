@@ -22,6 +22,16 @@ class CarritoPacks {
         this.totalLlamadas = 0;
     }
 
+    agregarPackAlCarrito(pack) {
+        this.packsEnCarrito.push(pack);
+        this.totalPacks += pack.precio;
+    }
+
+    agregarLlamadaAlCarrito(llamada) {
+        this.llamadasEnCarrito.push(llamada);
+        this.totalLlamadas += llamada.precio;
+
+    }
     agregarPack(pack) {
         this.packs.push(pack);
     }
@@ -77,11 +87,12 @@ class CarritoPacks {
         const continuarComprando = confirm("¿Desea seguir comprando?");
         if (continuarComprando) {
             this.mostrarPacksLlamadas();
+            
         } else {
             this.mostrarResumen();
+            this.mostrarMenuFinal();
         }
     }
-
     mostrarResumen() {
         let detallePacks = "";
         this.packs.forEach(pack => {
@@ -93,9 +104,16 @@ class CarritoPacks {
             detalleLlamadas += `${llamada.nombre} - $${llamada.precio}\n`;
         });
 
-        alert(`Detalle Packs:\n${detallePacks}\nDetalle Llamadas:\n${detalleLlamadas}\nTotal Packs: $${this.totalPacks}\nTotal Llamadas: $${this.totalLlamadas}`);
+        alert(`\nTotal Packs: $${this.totalPacks}\nTotal Llamadas: $${this.totalLlamadas}\nTotal de Compra: $${this.totalPacks + this.totalLlamadas}`);
+    }
+    mostrarMenuFinal() {
+        alert("Gracias por su compra. Hasta Pronto!");
     }
 }
+
+
+
+const carrito = new CarritoPacks();
 
 const gigas1 = new Pack(1, "1 Giga x 7 dias", 820);
 const gigas2 = new Pack(2, "10 Gigas x 15 dias", 3500);
@@ -104,15 +122,25 @@ const gigas3 = new Pack(3, "25 gigas x 30 dias", 8500);
 const llamadas1 = new Llamada(4, "1000 minutos para hablar", 1800);
 const llamadas2 = new Llamada(5, "500 minutos para hablar", 1000);
 
-const carrito = new CarritoPacks();
-
 carrito.agregarPack(gigas1);
 carrito.agregarPack(gigas2);
 carrito.agregarPack(gigas3);
 
-carrito.mostrarPacksInternet();
+
 
 carrito.agregarLlamada(llamadas1);
 carrito.agregarLlamada(llamadas2);
 
+
+carrito.mostrarPacksInternet();
+carrito.mostrarPacksLlamadas();
+
+
 carrito.mostrarResumen();
+
+
+
+
+
+
+
