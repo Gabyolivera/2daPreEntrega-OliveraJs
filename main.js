@@ -18,9 +18,11 @@ class CarritoPacks {
     constructor() {
         this.packs = [];
         this.llamadas = [];
+        this.packsEnCarrito = [];
         this.totalPacks = 0;
         this.totalLlamadas = 0;
     }
+  
 
     agregarPackAlCarrito(pack) {
         this.packsEnCarrito.push(pack);
@@ -51,7 +53,7 @@ class CarritoPacks {
         const packSeleccionado = this.packs.find(pack => pack.id === seleccion);
 
         if (packSeleccionado) {
-            this.agregarPack(packSeleccionado);
+            this.agregarPackAlCarrito(packSeleccionado);
             this.totalPacks += packSeleccionado.precio;
             alert(`Se ha agregado "${packSeleccionado.nombre}" al carrito.`);
         } else {
@@ -77,7 +79,7 @@ class CarritoPacks {
         const llamadaSeleccionada = this.llamadas.find(llamada => llamada.id === seleccion);
 
         if (llamadaSeleccionada) {
-            this.agregarLlamada(llamadaSeleccionada);
+            this.agregarPackAlCarrito(llamadaSeleccionada);
             this.totalLlamadas += llamadaSeleccionada.precio;
             alert(`Se ha agregado "${llamadaSeleccionada.nombre}" al carrito.`);
         } else {
