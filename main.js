@@ -133,14 +133,5 @@ carrito.agregarLlamada(llamadas2);
 
 
 carrito.mostrarPacksInternet();
-carrito.mostrarPacksLlamadas();
-
-
-carrito.mostrarResumen();
-
-
-
-
-
 
 
